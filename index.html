@@ -1,0 +1,164 @@
+---
+title: "CityH2O — What's in Your City's Tap Water? Free Lookup, Guides & Water Check"
+description: "Look up your city's tap water source and hardness, understand lead, PFAS and other contaminants, compare filters, and get a free water check. Updated daily."
+bodyclass: home
+schema: '{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Is my city tap water safe to drink?","acceptedAnswer":{"@type":"Answer","text":"Most public water systems in the U.S. and Canada meet federal or national standards most of the time. Problems usually come from your own plumbing (lead service lines, old fixtures) or from contaminants with new or evolving limits such as PFAS. Read your utility annual water quality report and test at the tap if you live in an older home."}},{"@type":"Question","name":"How do I find my water quality report?","acceptedAnswer":{"@type":"Answer","text":"U.S. utilities must deliver a Consumer Confidence Report by July 1 each year. Search your utility name plus water quality report, check your bill, or use the EPA Find Your CCR tool."}},{"@type":"Question","name":"What filter removes lead and PFAS?","acceptedAnswer":{"@type":"Answer","text":"Look for filters certified to NSF/ANSI 53 for lead and NSF/ANSI 53 or 58 with a PFOA/PFOS claim. Reverse osmosis systems certified to NSF/ANSI 58 handle the widest range of contaminants."}}]}'
+---
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="pill"><i></i> <span data-news-updated>Water news refreshed daily</span></span>
+      <h1>Know what's in your <em>city's tap water</em>.</h1>
+      <p class="lede">Find where your water comes from, how hard it is, which contaminants matter, and which filters actually work — then get a free, no-obligation water check.</p>
+      <form class="searchbox" data-city-search role="search" aria-label="Find your city">
+        <label class="sr" for="heroQ">City name</label>
+        <input id="heroQ" type="search" placeholder="Type your city — e.g. Chicago, Toronto, Phoenix" autocomplete="off">
+        <button class="btn btn-primary" type="submit">Check my water</button>
+      </form>
+      <div class="hero-stats">
+        <div><b>{{ site.data.cities | size }}</b><span>city water profiles</span></div>
+        <div><b>{{ site.data.contaminants | size }}</b><span>contaminants explained</span></div>
+        <div><b>7</b><span>free calculators</span></div>
+        <div><b>Daily</b><span>water news</span></div>
+      </div>
+    </div>
+    <div class="glass reveal" aria-live="polite">
+      <h3>Hardness snapshot <span class="tag">USGS scale</span></h3>
+      <label for="snapCity" class="small muted">Pick a city</label>
+      <select id="snapCity">
+        {% for c in site.data.cities %}<option value="{{ c.band }}" data-id="{{ c.id }}" data-src="{{ c.source | escape }}"{% if c.id == 'phoenix-az' %} selected{% endif %}>{{ c.name }}, {{ c.region }}</option>{% endfor %}
+      </select>
+      <div class="gauge"><i id="snapNeedle" style="left:87%"></i></div>
+      <div class="gauge-l"><span>Soft</span><span>Moderate</span><span>Hard</span><span>Very hard</span></div>
+      <dl class="kv"><dt>Typical band</dt><dd id="snapBand">Very hard</dd><dt>Source</dt><dd id="snapSrc" class="small" style="font-weight:600;max-width:240px"></dd></dl>
+      <p class="small muted" style="margin:12px 0 0">Band is approximate and varies by neighbourhood. <a id="snapLink" href="/cities.html#phoenix-az">Full profile →</a></p>
+    </div>
+  </div>
+  <svg class="wave" viewBox="0 0 1440 110" preserveAspectRatio="none" aria-hidden="true"><path d="M0 60 C 240 110 480 10 720 60 S 1200 110 1500 50 V110 H0Z" fill="var(--bg)" opacity=".55"/><path d="M0 75 C 300 30 520 120 780 70 S 1240 40 1500 80 V110 H0Z" fill="var(--bg)"/></svg>
+</section>
+
+<section class="block">
+  <div class="wrap">
+    <div class="sec-head center"><p class="kicker">Start here</p><h2>What do you need to know today?</h2></div>
+    <div class="grid g4">
+      <a class="card reveal" href="/cities.html"><div class="ico">🏙️</div><h3>Look up my city</h3><p>Utility, water source, hardness and local notes for {{ site.data.cities | size }} cities across North America, the UK, France and Australia.</p></a>
+      <a class="card reveal" href="/contaminants.html"><div class="ico">🧪</div><h3>Decode a contaminant</h3><p>Lead, PFAS, nitrate, arsenic and more — limits, health effects and fixes in plain English.</p></a>
+      <a class="card reveal" href="/filter-finder.html"><div class="ico">🚰</div><h3>Find the right filter</h3><p>Our 60-second Filter Finder matches your concerns to the right technology and NSF certification.</p></a>
+      <a class="card reveal" href="/get-tested.html"><div class="ico">✅</div><h3>Get a free water check</h3><p>A specialist reviews your city's data and recommends the right test — no cost, no pressure.</p></a>
+    </div>
+  </div>
+</section>
+
+<section class="block alt" id="check">
+  <div class="wrap lead-wrap">
+    <div>
+      <p class="kicker">Free water check</p>
+      <h2>Get a straight answer about <em style="font-style:normal;color:var(--brand)">your</em> tap — free.</h2>
+      <p class="lede">Tell us your city and what's bothering you. We match your answers against public utility data and send you a short plan: which lab test (if any) you need, and which certified filter fits your water and budget.</p>
+      <ul class="trust">
+        <li><span>🔒</span><div><b>Private by default</b>Your details are only used to answer your request. We never sell your data.</div></li>
+        <li><span>🧾</span><div><b>Certification-first</b>We only point to filters certified by NSF, IAPMO, CSA or WQA for the contaminant you care about.</div></li>
+        <li><span>⚡</span><div><b>Fast</b>Most requests get a reply within one business day.</div></li>
+      </ul>
+    </div>
+    <div class="lead-card">
+      <form class="js-form" data-subject="Free water check (home)" data-ok="Thanks! Your water check is in the queue — expect a reply within one business day.">
+        <div class="field"><label for="h-city">Your city or ZIP / postal code</label><input id="h-city" name="city" required placeholder="e.g. Chicago 60614"></div>
+        <div class="field"><label for="h-concern">Main concern</label>
+          <select id="h-concern" name="concern" required>
+            <option value="">Choose one…</option><option>Lead / old pipes</option><option>PFAS (forever chemicals)</option><option>Hard water &amp; scale</option><option>Taste or smell (chlorine, sulfur)</option><option>Well water safety</option><option>Baby / pregnancy safety</option><option>Not sure — just want to know</option>
+          </select></div>
+        <div class="row2">
+          <div class="field"><label for="h-name">First name</label><input id="h-name" name="name" required autocomplete="given-name"></div>
+          <div class="field"><label for="h-email">Email</label><input id="h-email" name="email" type="email" required autocomplete="email"></div>
+        </div>
+        <input class="hp" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <label class="consent"><input type="checkbox" name="consent" value="yes" required> I agree CityH2O may contact me about my request and, if I choose, connect me with a certified local water professional.</label>
+        <button class="btn btn-primary btn-lg" type="submit" style="width:100%;margin-top:14px">Send my free water check →</button>
+        <div class="form-msg" role="status"></div>
+        <p class="small muted center" style="margin:10px 0 0">Prefer more detail? Use the <a href="/get-tested.html">full 6-step check</a>.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<section class="block">
+  <div class="wrap">
+    <div class="sec-head"><p class="kicker">Free tools</p><h2>Calculators that put numbers on your water</h2></div>
+    <div class="grid g3">
+      <a class="card reveal" href="/tools.html#lead"><div class="ico">🔍</div><h3>Lead risk check</h3><p>Five questions about your home's age, pipes and household to estimate your lead exposure risk.</p></a>
+      <a class="card reveal" href="/tools.html#hardness"><div class="ico">💎</div><h3>Hardness converter</h3><p>Convert mg/L, ppm, grains per gallon and German degrees — and see what your number means.</p></a>
+      <a class="card reveal" href="/tools.html#leak"><div class="ico">💧</div><h3>Leak cost calculator</h3><p>How much that drip or running toilet costs you each year, in gallons and dollars.</p></a>
+      <a class="card reveal" href="/tools.html#bottled"><div class="ico">🧴</div><h3>Bottled vs. tap</h3><p>Your yearly spend on bottled water compared with a filtered tap setup.</p></a>
+      <a class="card reveal" href="/tools.html#usage"><div class="ico">🚿</div><h3>Household water use</h3><p>Estimate daily use by fixture and see what efficient upgrades save.</p></a>
+      <a class="card reveal" href="/tools.html#softener"><div class="ico">⚙️</div><h3>Softener payback</h3><p>Will a water softener pay for itself in your home? Run the numbers.</p></a>
+    </div>
+  </div>
+</section>
+
+<section class="block alt">
+  <div class="wrap grid g2" style="align-items:start">
+    <div>
+      <p class="kicker">Today in water</p>
+      <h2>Latest headlines</h2>
+      <p class="updated-stamp" data-news-updated>Refreshed every morning</p>
+      <div data-news="6"></div>
+      <p><a class="btn btn-ghost btn-sm" href="/news.html">All water news →</a></p>
+    </div>
+    <div class="grid" style="gap:16px">
+      <div class="card"><p class="kicker">Water fact of the day</p><p class="fact" style="font-size:1.15rem;font-weight:600"><span class="drop-ico" aria-hidden="true">💧</span><span data-fact>Use cold tap water for cooking and baby formula.</span></p></div>
+      <div class="card"><p class="kicker">This month's home water tip</p><p data-tip style="font-weight:600">Check your toilet for silent leaks with a few drops of food coloring.</p></div>
+      <div class="card"><p class="kicker">Rule watch</p><p><b>Lead:</b> the U.S. action level drops from 15 to 10 ppb on Nov 1, 2027, and most lead service lines must be replaced within 10 years after that. <b>PFAS:</b> PFOA and PFOS limits stay at 4 ppt; EPA has proposed letting some systems take until 2031 to comply. <a href="/guides/pfas-in-drinking-water.html">What it means for you →</a></p></div>
+    </div>
+  </div>
+</section>
+
+<section class="block">
+  <div class="wrap">
+    <div class="sec-head"><p class="kicker">Guides</p><h2>Plain-English water guides</h2></div>
+    <div class="grid g3">
+      {% assign gs = site.pages | where_exp: "p", "p.layout == 'guide'" | sort: "order" %}
+      {% for g in gs limit: 6 %}
+      <a class="card reveal" href="{{ g.url }}"><span class="tag">{{ g.category }}</span><h3>{{ g.short | default: g.title }}</h3><p>{{ g.description | truncate: 120 }}</p></a>
+      {% endfor %}
+    </div>
+    <p style="margin-top:20px"><a class="btn btn-ghost" href="/guides/">Browse all guides →</a></p>
+  </div>
+</section>
+
+<section class="block alt">
+  <div class="wrap">
+    <div class="sec-head"><p class="kicker">Watch</p><h2>How your water gets to the tap</h2></div>
+    <div class="grid g3">
+      <div><div class="vid" data-id="0_ZcCqqpS2o" data-title="How Do Water Treatment Plants Work?"></div><p class="small"><b>How water treatment plants work</b> · Concerning Reality</p></div>
+      <div><div class="vid" data-id="w4yf4gLIv_o" data-title="Why Do We STILL Use Lead Pipes?!"></div><p class="small"><b>Why do we still use lead pipes?</b> · MinuteEarth</p></div>
+      <div><div class="vid" data-id="yZwfcMSDBHs" data-title="How Water Towers Work"></div><p class="small"><b>How water towers work</b> · Practical Engineering</p></div>
+    </div>
+    <p style="margin-top:12px"><a href="/videos.html">Full video library →</a></p>
+  </div>
+</section>
+
+<section class="block">
+  <div class="wrap grid g3">
+    <a class="card reveal" href="/contest.html"><div class="ico">🏆</div><h3>{{ site.contest_name }}</h3><p>Nominate a person or group making tap water safer in your community. Prize: {{ site.contest_prize }}.</p></a>
+    <a class="card reveal" href="/support.html"><div class="ico">💙</div><h3>Support independent water info</h3><p>Reader support keeps our tools free, funds water tests for families in need and grows our city coverage.</p></a>
+    <a class="card reveal" href="/pros.html"><div class="ico">🔧</div><h3>Water pros: get local leads</h3><p>Certified labs, plumbers and treatment dealers can join our referral network for their service area.</p></a>
+  </div>
+</section>
+
+<section class="block alt faq">
+  <div class="wrap narrow">
+    <div class="sec-head"><p class="kicker">FAQ</p><h2>Common tap water questions</h2></div>
+    <details><summary>Is my city's tap water safe to drink?</summary><p>Most public water systems in the U.S. and Canada meet national standards most of the time. Problems usually come from your own plumbing — lead service lines, lead solder, old brass fixtures — or from contaminants with new or evolving limits such as PFAS. Read your utility's annual water quality report, and test at your own tap if you live in an older home or have an infant.</p></details>
+    <details><summary>How do I find my water quality report?</summary><p>U.S. utilities must deliver a Consumer Confidence Report (CCR) by July 1 each year. Search for your utility name plus "water quality report," check the back of your bill, or use the EPA's <a href="https://sdwis.epa.gov/fylccr" target="_blank" rel="noopener">Find Your CCR</a> tool. Our <a href="/guides/how-to-read-your-water-quality-report.html">CCR reading guide</a> explains every column.</p></details>
+    <details><summary>What filter removes lead and PFAS?</summary><p>Look for a filter certified to NSF/ANSI 53 for lead, and NSF/ANSI 53 or 58 with a specific PFOA/PFOS claim for PFAS. Reverse osmosis systems certified to NSF/ANSI 58 cover the widest range. Try the <a href="/filter-finder.html">Filter Finder</a>.</p></details>
+    <details><summary>Is hard water bad for me?</summary><p>No — calcium and magnesium aren't a health risk. Hard water costs you money through scale in water heaters, dishwashers and fixtures. See our <a href="/guides/hard-water-guide.html">hard water guide</a> and <a href="/tools.html#softener">softener payback calculator</a>.</p></details>
+    <details><summary>Does CityH2O sell filters?</summary><p>No. We're an independent information site supported by advertising, sponsorships and reader donations. When you request a water check we may, with your permission, introduce you to a certified local professional. See our <a href="/editorial-policy.html">editorial policy</a>.</p></details>
+  </div>
+</section>
+
+<script>
+(function(){var s=document.getElementById('snapCity');if(!s)return;var B=['','Soft','Moderately hard','Hard','Very hard'],P=['',12,37,62,87];
+function u(){var o=s.options[s.selectedIndex],b=+o.value;document.getElementById('snapNeedle').style.left=P[b]+'%';document.getElementById('snapBand').textContent=B[b];document.getElementById('snapSrc').textContent=o.getAttribute('data-src');document.getElementById('snapLink').href='/cities.html#'+o.getAttribute('data-id')}
+s.addEventListener('change',u);u()})();
+</script>

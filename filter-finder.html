@@ -1,0 +1,66 @@
+---
+title: "Filter Finder — Which Water Filter Do You Actually Need? | CityH2O"
+description: "Answer 5 quick questions and get a certification-first water filter recommendation for lead, PFAS, chlorine taste, hardness, nitrate, arsenic or well water."
+scripts: ["/assets/js/finder.js"]
+---
+<header class="page-hero">
+  <div class="wrap narrow">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> › <span>Filter Finder</span></nav>
+    <p class="kicker">Filter Finder</p>
+    <h1>Which water filter do you actually need?</h1>
+    <p class="lede">Five questions, 60 seconds. You'll get the technology that fits, the certification to check for, and a realistic budget — no brand pushing.</p>
+  </div>
+</header>
+<section class="block" style="padding-top:36px">
+  <div class="wrap narrow">
+    <form id="finder" class="lead-card">
+      <fieldset class="field" style="border:0;padding:0;margin:0 0 18px">
+        <legend><b>1. Where does your water come from?</b></legend>
+        <div class="choices"><label class="choice"><input type="radio" name="src" value="city" checked><span>🏙️ City / municipal water</span></label><label class="choice"><input type="radio" name="src" value="well"><span>🌾 Private well</span></label></div>
+      </fieldset>
+      <fieldset class="field" style="border:0;padding:0;margin:0 0 18px">
+        <legend><b>2. What worries you? (pick all that apply)</b></legend>
+        <div class="choices">
+          <label class="choice"><input type="checkbox" name="c" value="lead"><span>Lead / old pipes</span></label>
+          <label class="choice"><input type="checkbox" name="c" value="pfas"><span>PFAS "forever chemicals"</span></label>
+          <label class="choice"><input type="checkbox" name="c" value="chlorine"><span>Chlorine taste or smell</span></label>
+          <label class="choice"><input type="checkbox" name="c" value="hardness"><span>Hard water / scale</span></label>
+          <label class="choice"><input type="checkbox" name="c" value="nitrate"><span>Nitrate (farm areas)</span></label>
+          <label class="choice"><input type="checkbox" name="c" value="arsenic"><span>Arsenic / uranium</span></label>
+          <label class="choice"><input type="checkbox" name="c" value="bacteria"><span>Bacteria / boil notices</span></label>
+          <label class="choice"><input type="checkbox" name="c" value="fluoride"><span>Fluoride</span></label>
+          <label class="choice"><input type="checkbox" name="c" value="microplastics"><span>Microplastics</span></label>
+          <label class="choice"><input type="checkbox" name="c" value="iron"><span>Rust stains / metallic taste</span></label>
+        </div>
+      </fieldset>
+      <div class="row2">
+        <div class="field"><label for="f-where">3. Where do you want filtered water?</label><select id="f-where" name="where"><option value="drink">Drinking &amp; cooking only</option><option value="whole">Whole house (showers too)</option></select></div>
+        <div class="field"><label for="f-home">4. You…</label><select id="f-home" name="home"><option value="own">Own your home</option><option value="rent">Rent (no plumbing changes)</option></select></div>
+      </div>
+      <div class="field"><label for="f-budget">5. Budget</label><select id="f-budget" name="budget"><option value="1">Under $100</option><option value="2" selected>$100–$500</option><option value="3">$500–$2,000</option><option value="4">$2,000+</option></select></div>
+      <button class="btn btn-primary btn-lg" type="submit" style="width:100%">Show my recommendation →</button>
+    </form>
+
+    <div id="finderOut" hidden aria-live="polite" style="margin-top:28px"></div>
+
+    <div id="finderLead" class="lead-card" hidden style="margin-top:24px">
+      <h3>Want certified local quotes for this setup?</h3>
+      <p class="muted">We'll send your recommendation to up to three vetted, certified installers or labs in your area — or just email you the plan if you'd rather DIY.</p>
+      <form class="js-form" data-subject="Filter Finder lead" data-ok="Done! We'll email your plan and, if you asked, line up quotes within one business day.">
+        <input type="hidden" name="recommendation" id="recField">
+        <div class="row2">
+          <div class="field"><label for="fl-city">City / ZIP / postal code</label><input id="fl-city" name="city" required></div>
+          <div class="field"><label for="fl-want">I'd like…</label><select id="fl-want" name="wants"><option>Up to 3 installer quotes</option><option>Just email me the plan</option><option>A certified lab test first</option></select></div>
+          <div class="field"><label for="fl-name">Name</label><input id="fl-name" name="name" required autocomplete="name"></div>
+          <div class="field"><label for="fl-email">Email</label><input id="fl-email" name="email" type="email" required autocomplete="email"></div>
+          <div class="field"><label for="fl-phone">Phone (optional, for quotes)</label><input id="fl-phone" name="phone" type="tel" autocomplete="tel"></div>
+        </div>
+        <input class="hp" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <label class="consent"><input type="checkbox" name="consent" value="yes" required> I agree CityH2O may email me and share my request with up to three certified professionals for my area.</label>
+        <button class="btn btn-primary" type="submit" style="margin-top:12px">Send my plan →</button>
+        <div class="form-msg" role="status"></div>
+      </form>
+    </div>
+    <p class="small muted" style="margin-top:24px">CityH2O doesn't sell filters. Recommendations are by technology and certification standard, not brand. Always confirm a product's certification listing covers the contaminants you care about.</p>
+  </div>
+</section>
