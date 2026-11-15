@@ -1,0 +1,26 @@
+---
+layout: default
+---
+<article class="guide">
+  <header class="page-hero small">
+    <div class="wrap narrow">
+      <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> › <a href="/guides/">Guides</a> › <span>{{ page.short | default: page.title }}</span></nav>
+      <p class="kicker">{{ page.category }}</p>
+      <h1>{{ page.h1 | default: page.title }}</h1>
+      <p class="lede">{{ page.description }}</p>
+      <p class="meta">By the CityH2O editorial team · Updated {{ page.updated | date: "%B %-d, %Y" }} · {{ page.read }} min read</p>
+    </div>
+  </header>
+  <div class="wrap narrow guide-body">
+    <aside class="toc" aria-label="On this page"><strong>On this page</strong><ol id="toc"></ol></aside>
+    <div class="prose" id="prose">
+{{ content }}
+    </div>
+    <div class="guide-cta">
+      <h3>Want a straight answer for your home?</h3>
+      <p>Tell us your city and your concern. We'll point you to the right lab test or certified filter — free.</p>
+      <a class="btn btn-primary" href="/get-tested.html?from={{ page.url | slugify }}">Get my free water check →</a>
+    </div>
+    <p class="sources-note">Sources and methodology: see our <a href="/editorial-policy.html">editorial policy</a>. This guide is general information, not medical or legal advice.</p>
+  </div>
+</article>
