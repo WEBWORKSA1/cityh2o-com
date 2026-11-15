@@ -1,0 +1,130 @@
+- id: lead
+  name: Lead
+  group: Metals
+  limit: "Action level 15 ppb → 10 ppb (Nov 1, 2027) · health goal 0"
+  canada: "Health Canada MAC: 5 µg/L"
+  sources: "Lead service lines, lead solder (pre-1986 plumbing), older brass faucets and fittings. Lead almost never comes from the treatment plant — it is picked up inside pipes on the way to your tap."
+  health: "There is no known safe level of lead exposure. Children under 6 and pregnant people are most at risk; lead affects brain development, learning and behaviour."
+  fix: "Run cold water 30 seconds to several minutes after water has sat; never use hot tap water for cooking or baby formula; use a filter certified to NSF/ANSI 53 (or 58 for RO) for lead reduction; ask your utility whether your service line is lead."
+  nsf: "NSF/ANSI 53, NSF/ANSI 58"
+  tech: [carbon-block, ro]
+- id: pfas
+  name: PFAS (PFOA & PFOS)
+  group: Emerging chemicals
+  limit: "MCL 4 ppt each for PFOA and PFOS (compliance due 2029; EPA has proposed allowing extensions to 2031)"
+  canada: "Health Canada objective: 30 ng/L for the sum of 25 PFAS"
+  sources: "Firefighting foam (airports, military bases), industrial discharges, landfills, wastewater and biosolids. PFAS are called 'forever chemicals' because they barely break down."
+  health: "Long-term exposure to PFOA and PFOS is linked to certain cancers, immune effects, thyroid effects, higher cholesterol and developmental effects."
+  fix: "Reverse osmosis is the most reliable home option; certified carbon block and some ion-exchange filters also work. Look for a PFOA/PFOS reduction claim under NSF/ANSI 53 or 58."
+  nsf: "NSF/ANSI 53 or 58 (PFOA/PFOS claim)"
+  tech: [ro, carbon-block]
+- id: nitrate
+  name: Nitrate
+  group: Agricultural
+  limit: "MCL 10 mg/L (as nitrogen); nitrite 1 mg/L"
+  canada: "Health Canada MAC: 45 mg/L as nitrate (≈10 mg/L as N)"
+  sources: "Fertilizer runoff, manure, septic systems. Mostly a concern for private wells in farming areas and some river supplies in spring."
+  health: "High nitrate is dangerous for infants under 6 months (methemoglobinemia, or 'blue baby syndrome'). Never boil water to remove nitrate — boiling concentrates it."
+  fix: "Reverse osmosis, ion exchange (anion) or distillation. Test private wells at least once a year."
+  nsf: "NSF/ANSI 58 (RO), NSF/ANSI 62 (distillation)"
+  tech: [ro]
+- id: arsenic
+  name: Arsenic
+  group: Metals
+  limit: "MCL 10 ppb (0.010 mg/L)"
+  canada: "Health Canada MAC: 10 µg/L (as low as reasonably achievable)"
+  sources: "Natural deposits in rock and soil — most common in groundwater in the Southwest, New England, the Upper Midwest and parts of the Pacific Northwest."
+  health: "Long-term exposure is linked to skin, bladder and lung cancer and to cardiovascular effects."
+  fix: "Reverse osmosis or specialized adsorptive media. RO units must be certified for the arsenic form in your water (arsenic V is easier to remove than arsenic III)."
+  nsf: "NSF/ANSI 58, NSF/ANSI 53"
+  tech: [ro]
+- id: tthm
+  name: Disinfection byproducts (TTHMs & HAA5)
+  group: Treatment byproducts
+  limit: "TTHMs 80 ppb · HAA5 60 ppb (running annual average)"
+  canada: "Health Canada MAC: THMs 100 µg/L, HAAs 80 µg/L"
+  sources: "Formed when chlorine reacts with natural organic matter. Levels are usually higher in warm months and at the far ends of the distribution system."
+  health: "Long-term exposure above the limits is associated with an increased risk of bladder cancer and possible liver, kidney and nervous-system effects."
+  fix: "Activated carbon (pitcher, faucet, under-sink or whole-house) certified for VOC/TTHM reduction."
+  nsf: "NSF/ANSI 53 (VOC/TTHM claim)"
+  tech: [carbon-block, whole-house]
+- id: chlorine
+  name: Chlorine & chloramine
+  group: Treatment chemicals
+  limit: "Maximum residual disinfectant level 4 mg/L"
+  canada: "No MAC — aesthetic only"
+  sources: "Added on purpose to kill germs in the pipes. Some cities use chloramine (chlorine + ammonia) because it lasts longer."
+  health: "Safe at regulated levels. The main issues are taste and odor; chloramine must be removed for aquariums and dialysis."
+  fix: "Standard activated carbon removes chlorine taste (NSF/ANSI 42). Chloramine needs catalytic carbon and more contact time."
+  nsf: "NSF/ANSI 42"
+  tech: [pitcher, carbon-block, whole-house]
+- id: fluoride
+  name: Fluoride
+  group: Treatment chemicals
+  limit: "MCL 4.0 mg/L · secondary standard 2.0 mg/L · U.S. recommended level for fluoridation 0.7 mg/L"
+  canada: "Health Canada MAC: 1.5 mg/L; optimal 0.7 mg/L"
+  sources: "Added by many utilities for dental health and also natural in some groundwater. Some U.S. states and cities have recently ended community fluoridation — check your utility's annual report."
+  health: "At 0.7 mg/L it is used to prevent tooth decay. Levels well above 2 mg/L can cause dental fluorosis; very high levels over many years can affect bones."
+  fix: "Reverse osmosis, activated alumina or distillation. Ordinary carbon pitchers do not remove much fluoride."
+  nsf: "NSF/ANSI 58 (fluoride claim)"
+  tech: [ro]
+- id: hardness
+  name: Hardness (calcium & magnesium)
+  group: Aesthetic
+  limit: "Not regulated for health. USGS scale: soft 0–60, moderate 61–120, hard 121–180, very hard 180+ mg/L"
+  canada: "No guideline; 80–100 mg/L considered a good balance"
+  sources: "Water dissolving limestone, chalk and dolomite. Groundwater and western river water tend to be hardest."
+  health: "Not harmful — calcium and magnesium are nutrients. Costs show up as scale in water heaters, dishwashers, kettles and shower glass."
+  fix: "Ion-exchange water softener for the whole home; salt-free conditioners reduce scale but don't remove minerals. RO for drinking water if you dislike the taste."
+  nsf: "NSF/ANSI 44 (softeners)"
+  tech: [softener]
+- id: bacteria
+  name: Bacteria & viruses (coliform, E. coli)
+  group: Microbial
+  limit: "Any E. coli is a violation; total coliform triggers investigation"
+  canada: "MAC: none detectable per 100 mL"
+  sources: "Breaks in water mains, pressure loss, flooding, and for wells: septic systems, livestock or a cracked well cap."
+  health: "Can cause acute stomach illness. Infants, older adults and immunocompromised people are most vulnerable."
+  fix: "During a boil-water notice, bring water to a rolling boil for 1 minute (3 minutes above 6,500 ft / 2,000 m). For wells: shock chlorination plus UV disinfection certified to NSF/ANSI 55."
+  nsf: "NSF/ANSI 55 (UV)"
+  tech: [uv]
+- id: uranium
+  name: Uranium & radium
+  group: Radiological
+  limit: "Uranium 30 µg/L · combined radium 5 pCi/L"
+  canada: "Uranium MAC: 20 µg/L"
+  sources: "Natural deposits, mostly in groundwater in granite and sandstone regions."
+  health: "Long-term exposure can affect the kidneys (uranium) and increase cancer risk (radium)."
+  fix: "Reverse osmosis or ion exchange; whole-house softeners also reduce radium."
+  nsf: "NSF/ANSI 58"
+  tech: [ro, softener]
+- id: iron
+  name: Iron & manganese
+  group: Aesthetic
+  limit: "Secondary standards: iron 0.3 mg/L, manganese 0.05 mg/L (EPA health advisory for manganese 0.3 mg/L)"
+  canada: "Manganese MAC: 0.12 mg/L"
+  sources: "Natural in many wells; can also come from old iron mains after flushing or main breaks."
+  health: "Iron is mostly aesthetic (rust stains, metallic taste). High manganese may affect children's neurological development."
+  fix: "Oxidizing filters (birm, greensand), aeration or a softener for low levels; RO for drinking water."
+  nsf: "NSF/ANSI 42 / 61-listed media"
+  tech: [whole-house, softener]
+- id: chromium6
+  name: Chromium-6 (hexavalent chromium)
+  group: Metals
+  limit: "Federal MCL 100 ppb for total chromium; California set a 10 ppb chromium-6 limit in 2024"
+  canada: "Health Canada MAC: 50 µg/L total chromium"
+  sources: "Industrial pollution and natural deposits."
+  health: "Considered a likely human carcinogen when ingested over long periods."
+  fix: "Reverse osmosis or strong-base anion exchange."
+  nsf: "NSF/ANSI 58"
+  tech: [ro]
+- id: microplastics
+  name: Microplastics
+  group: Emerging
+  limit: "No federal limit; California is the first state to require monitoring"
+  canada: "No guideline"
+  sources: "Breakdown of plastic waste, synthetic textiles and packaging. Found in both tap and bottled water."
+  health: "Health effects are still being studied."
+  fix: "Carbon block filters with fine pore size and reverse osmosis remove most particles; some filters carry a specific microplastics reduction claim under NSF/ANSI 401."
+  nsf: "NSF/ANSI 401"
+  tech: [carbon-block, ro]

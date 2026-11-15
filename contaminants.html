@@ -1,0 +1,45 @@
+---
+title: "Drinking Water Contaminants Explained — Limits, Health Effects & Fixes | CityH2O"
+description: "Lead, PFAS, nitrate, arsenic, chlorine, fluoride, hardness and more: U.S. and Canadian limits, where each contaminant comes from, and which certified filters remove it."
+---
+<header class="page-hero">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> › <span>Contaminants</span></nav>
+    <p class="kicker">Contaminant library</p>
+    <h1>What's that in my water?</h1>
+    <p class="lede">{{ site.data.contaminants | size }} of the contaminants people ask about most — with the U.S. federal limit, the Canadian guideline, where it comes from, why it matters, and the certification to look for on a filter.</p>
+    <p class="updated-stamp">Limits checked November 2026 · see <a href="/editorial-policy.html">methodology</a></p>
+  </div>
+</header>
+<section class="block" style="padding-top:36px">
+  <div class="wrap narrow">
+    <div class="filters"><label class="sr" for="cq">Filter contaminants</label><input id="cq" type="search" placeholder="Filter: lead, PFAS, well, metals…" oninput="var q=this.value.toLowerCase();document.querySelectorAll('.cbox').forEach(function(d){d.hidden=d.textContent.toLowerCase().indexOf(q)<0})"></div>
+    {% for c in site.data.contaminants %}
+    <details class="cbox" id="{{ c.id }}">
+      <summary><span>{{ c.name }} <span class="tag">{{ c.group }}</span></span><span class="lim">{{ c.nsf }}</span></summary>
+      <div class="in">
+        <p><b>U.S. limit:</b> {{ c.limit }}<br><b>Canada:</b> {{ c.canada }}</p>
+        <p><b>Where it comes from:</b> {{ c.sources }}</p>
+        <p><b>Why it matters:</b> {{ c.health }}</p>
+        <p><b>How to reduce it:</b> {{ c.fix }}</p>
+        <p class="small"><a href="/filter-finder.html?concern={{ c.id }}">Find a filter for {{ c.name }} →</a> · <a href="/get-tested.html?concern={{ c.name | url_encode }}">Get tested for {{ c.name }} →</a></p>
+      </div>
+    </details>
+    {% endfor %}
+    <h2 style="margin-top:48px">Quick reference: what each filter type removes</h2>
+    <div class="table-wrap">
+      <table class="ctab">
+        <thead><tr><th>Technology</th><th>Good at</th><th>Not for</th><th>Look for</th></tr></thead>
+        <tbody>
+          <tr><td><b>Carbon pitcher</b></td><td>Chlorine taste, some lead and PFAS (certified models only)</td><td>Nitrate, fluoride, bacteria, hardness</td><td>NSF/ANSI 42, 53, 401</td></tr>
+          <tr><td><b>Carbon block (faucet / under-sink)</b></td><td>Lead, TTHMs, chlorine, many PFAS, microplastics</td><td>Nitrate, fluoride, arsenic (most), hardness</td><td>NSF/ANSI 42, 53, 401</td></tr>
+          <tr><td><b>Reverse osmosis</b></td><td>PFAS, lead, arsenic, nitrate, fluoride, uranium, chromium-6</td><td>Bacteria (unless paired with UV); wastes some water</td><td>NSF/ANSI 58</td></tr>
+          <tr><td><b>Whole-house carbon</b></td><td>Chlorine/chloramine in showers, TTHMs</td><td>Lead at the kitchen tap (point-of-use is better)</td><td>NSF/ANSI 42, 53</td></tr>
+          <tr><td><b>Water softener</b></td><td>Hardness, some iron, radium</td><td>PFAS, lead, bacteria, chemicals</td><td>NSF/ANSI 44</td></tr>
+          <tr><td><b>UV disinfection</b></td><td>Bacteria, viruses, protozoa</td><td>Any chemical contaminant</td><td>NSF/ANSI 55</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="small muted" style="margin-top:16px">Certifications: NSF International, IAPMO, CSA Group, UL and the Water Quality Association (WQA Gold Seal) all certify to these ANSI standards. A filter is only proven against the specific contaminants listed on its certification — check the listing, not just the box.</p>
+  </div>
+</section>

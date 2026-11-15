@@ -1,0 +1,46 @@
+---
+title: "City Tap Water Lookup — Source, Utility & Hardness for 60+ Cities | CityH2O"
+description: "Where does your city's tap water come from, who treats it, and how hard is it? Browse water profiles for major U.S., Canadian, UK, French and Australian cities."
+---
+<header class="page-hero">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> › <span>City water</span></nav>
+    <p class="kicker">City water lookup</p>
+    <h1>Your city's tap water, at a glance</h1>
+    <p class="lede">Each profile lists the utility, the water source and the typical hardness band, plus a link to the official annual water quality report. Results are a starting point — water changes street by street, and your own plumbing matters most.</p>
+  </div>
+</header>
+<section class="block" style="padding-top:36px">
+  <div class="wrap">
+    <div class="filters" role="search">
+      <label class="sr" for="cityQ">Search cities</label><input id="cityQ" type="search" placeholder="Search city, state/province or utility…">
+      <label class="sr" for="cityBand">Hardness</label>
+      <select id="cityBand"><option value="">All hardness levels</option><option value="1">Soft</option><option value="2">Moderately hard</option><option value="3">Hard</option><option value="4">Very hard</option></select>
+      <label class="sr" for="cityCountry">Country</label>
+      <select id="cityCountry"><option value="">All countries</option><option value="US">United States</option><option value="CA">Canada</option><option value="UK">United Kingdom</option><option value="FR">France</option><option value="AU">Australia</option></select>
+    </div>
+    <p class="small muted">Showing <b id="cityCount">{{ site.data.cities | size }}</b> cities. Don't see yours? <a href="/get-tested.html">Request a free check</a> and we'll research it.</p>
+    {% assign bands = "|Soft|Moderately hard|Hard|Very hard" | split: "|" %}
+    <div class="grid g2" id="cityGrid">
+      {% for c in site.data.cities %}
+      <details class="cbox city-card" id="{{ c.id }}" data-band="{{ c.band }}" data-country="{{ c.country }}" data-s="{{ c.name }} {{ c.region }} {{ c.utility }} {{ c.source }}">
+        <summary><span>{{ c.name }}, {{ c.region }} <span class="tag{% if c.band == 4 %} bad{% elsif c.band == 3 %} warn{% else %} ok{% endif %}">{{ bands[c.band] }}</span></span><span class="lim">{{ c.country }}</span></summary>
+        <div class="in">
+          <div class="hard-scale" aria-label="Hardness band {{ c.band }} of 4">{% for i in (1..4) %}<span{% if i <= c.band %} class="on"{% endif %}></span>{% endfor %}</div>
+          <p class="src"><b>Utility:</b> {{ c.utility }}</p>
+          <p class="src"><b>Source water:</b> {{ c.source }}</p>
+          <p>{{ c.note }}</p>
+          <div class="links">
+            <a href="https://www.google.com/search?q={{ c.utility | append: ' water quality report' | url_encode }}" target="_blank" rel="noopener nofollow">Official water quality report ↗</a>
+            {% if c.country == 'US' %}<a href="https://sdwis.epa.gov/fylccr" target="_blank" rel="noopener">EPA CCR finder ↗</a>{% endif %}
+            <a class="btn btn-primary btn-sm" href="/get-tested.html?city={{ c.name | append: ', ' | append: c.region | url_encode }}">Free water check for {{ c.name }}</a>
+          </div>
+        </div>
+      </details>
+      {% endfor %}
+    </div>
+    <div class="callout" style="margin-top:32px">
+      <b>How to read these profiles.</b> Hardness bands follow the USGS scale (soft 0–60, moderately hard 61–120, hard 121–180, very hard over 180 mg/L as calcium carbonate) and reflect typical values reported by utilities; your neighbourhood may differ, and blends change by season. Profiles are not a safety rating. For contaminant results, read your utility's official report and consider a certified lab test at your own tap. Spotted something out of date? <a href="/contact.html?topic=correction">Send a correction</a>.
+    </div>
+  </div>
+</section>
