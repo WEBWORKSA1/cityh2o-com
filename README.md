@@ -10,7 +10,7 @@ Static Jekyll site — builds natively on **GitHub Pages (free plan, `main` bran
    - `A` records for `@`: `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`
    - `CNAME` for `www` → `webworksa1.github.io`
    Then tick **Enforce HTTPS** once the certificate is issued.
-3. **Actions write access:** Settings → Actions → General → Workflow permissions → **Read and write** (lets the daily news job commit). Run "Daily water news refresh" once manually from the Actions tab.
+3. **Turn on the daily news job:** on GitHub choose **Add file → Create new file**, name it `.github/workflows/update-news.yml`, paste the contents of `scripts/update-news.workflow.yml`, and commit. Then Settings → Actions → General → Workflow permissions → **Read and write**. Run "Daily water news refresh" once from the Actions tab.
 4. **Forms:** the first form submission triggers a one-time FormSubmit activation email to the owner inbox — click **Activate**.
 5. **AdSense:** add the site in AdSense, it will find the head script and `ads.txt`. In **Privacy & messaging**, publish the Google-certified consent message for EEA/UK/CH visitors.
 6. **Search Console:** verify the domain and submit `https://cityh2o.com/sitemap.xml`.
