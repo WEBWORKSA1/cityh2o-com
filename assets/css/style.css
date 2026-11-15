@@ -34,7 +34,8 @@ p{margin:0 0 1em}
 
 /* top bar */
 .topbar{background:var(--deep);color:#cfe9f7;font-size:.86rem;text-align:center;padding:7px 0}
-.topbar a{color:#7dd3fc;font-weight:700;white-space:nowrap}
+.topbar a{color:#cfe9f7;font-weight:600;text-decoration:none}
+.topbar a:hover{color:#7dd3fc;text-decoration:underline}
 
 /* header */
 header.site{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--bg) 86%,transparent);backdrop-filter:saturate(1.6) blur(12px);border-bottom:1px solid var(--line)}
