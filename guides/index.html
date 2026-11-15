@@ -1,0 +1,22 @@
+---
+layout: default
+title: "Tap Water Guides — Lead, PFAS, Hard Water, Filters & Wells | CityH2O"
+description: "Plain-English guides to reading your water report, lead pipes, PFAS rules, hard water, filter certifications, well testing, boil advisories and saving water."
+---
+<header class="page-hero">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> › <span>Guides</span></nav>
+    <p class="kicker">Guides</p>
+    <h1>Water, explained without the jargon</h1>
+    <p class="lede">Every guide is checked against primary sources from regulators and science agencies, and dated so you know it's current.</p>
+    <div class="filters" style="margin-top:16px;max-width:520px"><label class="sr" for="gq">Search guides</label><input id="gq" type="search" placeholder="Search guides…" oninput="var q=this.value.toLowerCase();document.querySelectorAll('[data-guide]').forEach(function(c){c.hidden=c.textContent.toLowerCase().indexOf(q)<0})"></div>
+  </div>
+</header>
+<section class="block" style="padding-top:36px">
+  <div class="wrap grid g3">
+    {% assign gs = site.pages | where_exp: "p", "p.layout == 'guide'" | sort: "order" %}
+    {% for g in gs %}
+    <a class="card" data-guide href="{{ g.url }}"><span class="tag">{{ g.category }}</span><h3>{{ g.short }}</h3><p>{{ g.description }}</p><p class="small muted" style="margin-top:10px">{{ g.read }} min read · Updated {{ g.updated | date: "%b %-d, %Y" }}</p></a>
+    {% endfor %}
+  </div>
+</section>
