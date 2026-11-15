@@ -1,0 +1,66 @@
+---
+title: "Support CityH2O — Keep Free Water Tools Running & Fund Water Tests | CityH2O"
+description: "Donate or pledge monthly to keep CityH2O's water tools free, fund certified water tests for families who can't afford them, and expand city coverage."
+---
+<header class="page-hero">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> › <span>Support</span></nav>
+    <p class="kicker">Reader-supported</p>
+    <h1>Help everyone know what's in their water.</h1>
+    <p class="lede">CityH2O is free for everyone. Your support pays for data work, new city profiles, the daily news feed — and certified lab tests for households that can't afford one.</p>
+  </div>
+</header>
+<section class="block" style="padding-top:36px">
+  <div class="wrap lead-wrap">
+    <div class="lead-card">
+      <h2 class="mt0">Choose your support</h2>
+      <form class="js-form" data-subject="Donation / support pledge" data-ok="Thank you! We'll email you a secure payment link and a receipt within one business day.">
+        <fieldset style="border:0;padding:0;margin:0 0 14px"><legend class="small"><b>Frequency</b></legend>
+          <div class="choices"><label class="choice"><input type="radio" name="frequency" value="Monthly" checked><span>🔁 Monthly</span></label><label class="choice"><input type="radio" name="frequency" value="One-time"><span>1️⃣ One-time</span></label></div>
+        </fieldset>
+        <fieldset style="border:0;padding:0;margin:0 0 14px"><legend class="small"><b>Amount (USD)</b></legend>
+          <div class="tiers">
+            <label class="tier"><input type="radio" name="amount" value="10"><span><b>$10</b><small>Keeps a tool online</small></span></label>
+            <label class="tier"><input type="radio" name="amount" value="25" checked><span><b>$25</b><small>Adds a city profile</small></span></label>
+            <label class="tier"><input type="radio" name="amount" value="75"><span><b>$75</b><small>Funds a lead test</small></span></label>
+            <label class="tier"><input type="radio" name="amount" value="250"><span><b>$250</b><small>Funds a full well test</small></span></label>
+          </div>
+        </fieldset>
+        <div class="field"><label for="d-other">Or another amount</label><input id="d-other" name="amount_other" type="number" min="1" placeholder="e.g. 50"></div>
+        <div class="field"><label for="d-for">Put my gift toward</label><select id="d-for" name="designation"><option>Where it's needed most</option><option>Water tests for families in need</option><option>New city coverage &amp; data</option><option>Tap Water Heroes Award prize fund</option><option>Hiring writers &amp; creators</option></select></div>
+        <div class="row2">
+          <div class="field"><label for="d-name">Name</label><input id="d-name" name="name" required autocomplete="name"></div>
+          <div class="field"><label for="d-email">Email (for your payment link &amp; receipt)</label><input id="d-email" name="email" type="email" required autocomplete="email"></div>
+        </div>
+        <label class="consent"><input type="checkbox" name="public_thanks" value="yes"> List my name on the supporters wall</label>
+        <input class="hp" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true">
+        {% if site.donate_url != "" %}
+        <a class="btn btn-gold btn-lg" href="{{ site.donate_url }}" target="_blank" rel="noopener" style="width:100%;margin-top:14px">Give securely now →</a>
+        <button class="btn btn-ghost" type="submit" style="width:100%;margin-top:10px">Or pledge and get an invoice</button>
+        {% else %}
+        <button class="btn btn-gold btn-lg" type="submit" style="width:100%;margin-top:14px">Pledge my support →</button>
+        {% endif %}
+        <div class="form-msg" role="status"></div>
+        <p class="small muted" style="margin-top:10px">Payments are processed by a secure third-party processor; CityH2O never sees or stores card numbers. CityH2O is not a registered charity, so contributions are not tax-deductible.</p>
+      </form>
+    </div>
+    <aside>
+      <h2>Where your money goes</h2>
+      <div class="card" style="margin-bottom:16px">
+        <p class="kicker">2027 goal</p>
+        <p class="stat mb0">100 free water tests</p>
+        <p class="muted">For families with infants, pregnant members or confirmed lead service lines.</p>
+        <div class="progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><i style="width:2%"></i></div>
+        <p class="small muted" style="margin-top:6px">Campaign launched November 2026 — be one of the first supporters.</p>
+      </div>
+      <ul class="trust">
+        <li><span>🧪</span><div><b>Water tests for families</b>Certified lab tests for households that can't afford one.</div></li>
+        <li><span>🗺️</span><div><b>More cities, better data</b>Research time to add and refresh city profiles.</div></li>
+        <li><span>🏆</span><div><b>Community prizes</b>Funding the Tap Water Heroes Award and student science prizes.</div></li>
+        <li><span>📣</span><div><b>Outreach &amp; promotion</b>Getting plain-English water info to the neighbourhoods that need it most.</div></li>
+        <li><span>👩‍💻</span><div><b>Hiring talent</b>Paying writers, researchers and video creators fairly.</div></li>
+      </ul>
+      <div class="card" style="margin-top:16px"><h3>Other ways to help</h3><p>Share a guide with a neighbour, <a href="/contact.html?topic=correction">send us a correction</a>, <a href="/contest.html">nominate a water hero</a>, or <a href="/advertise.html">sponsor a city page</a>.</p></div>
+    </aside>
+  </div>
+</section>

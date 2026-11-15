@@ -1,0 +1,53 @@
+---
+title: "Tap Water Heroes Award 2027 — Nominate a Local Water Hero | CityH2O"
+description: "Nominate a person, school or group making tap water safer in their community. Free to enter. Winners announced on World Water Day."
+---
+<header class="page-hero">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> › <span>Contest</span></nav>
+    <p class="kicker">Free to enter · Closes {{ site.contest_deadline | date: "%B %-d, %Y" }}</p>
+    <h1>{{ site.contest_name }}</h1>
+    <p class="lede">Who's making the water safer where you live? A teacher who got the school taps tested, a neighbour who mapped lead lines, a utility crew that went above and beyond. Tell us their story.</p>
+    <p class="countdown stat" id="cd" aria-live="polite"></p>
+  </div>
+</header>
+<section class="block" style="padding-top:36px">
+  <div class="wrap lead-wrap">
+    <div>
+      <div class="grid g3" style="margin-bottom:24px">
+        <div class="card"><div class="ico">🏆</div><h3>Grand prize</h3><p>{{ site.contest_prize }}.</p></div>
+        <div class="card"><div class="ico">🎓</div><h3>Student category</h3><p>Best student water science project or tap-testing campaign — featured profile and certificate.</p></div>
+        <div class="card"><div class="ico">🗳️</div><h3>Readers' choice</h3><p>Finalists' stories are published so readers can share and support them.</p></div>
+      </div>
+      <h2>How it works</h2>
+      <ol class="steps-list">
+        <li><b>Nominate</b> — yourself or someone else, by the deadline. Free, no purchase necessary.</li>
+        <li><b>Judging</b> — our editorial panel scores impact (40%), originality (30%), community reach (20%) and storytelling (10%).</li>
+        <li><b>Finalists</b> — announced early March and featured on CityH2O.</li>
+        <li><b>Winners</b> — announced on World Water Day, March 22.</li>
+      </ol>
+      <p class="small">Read the <a href="/rules.html">official rules</a>. Want to fund or co-sponsor a prize? <a href="/advertise.html#contest">Become a contest sponsor</a>.</p>
+    </div>
+    <div class="lead-card">
+      <h2 class="mt0">Submit a nomination</h2>
+      <form class="js-form" data-subject="Contest nomination" data-ok="Nomination received! We'll confirm by email and keep you posted on finalists.">
+        <div class="field"><label for="c-cat">Category</label><select id="c-cat" name="category"><option>Community Water Hero</option><option>Student / school project</option><option>Utility or public-sector team</option></select></div>
+        <div class="field"><label for="c-nominee">Nominee name (person or group)</label><input id="c-nominee" name="nominee" required></div>
+        <div class="field"><label for="c-city">City</label><input id="c-city" name="city" required></div>
+        <div class="field"><label for="c-story">What did they do? (100–500 words)</label><textarea id="c-story" name="story" required minlength="100"></textarea></div>
+        <div class="field"><label for="c-link">Link to photos, video or press (optional)</label><input id="c-link" name="link" type="url" placeholder="https://"></div>
+        <div class="row2">
+          <div class="field"><label for="c-name">Your name</label><input id="c-name" name="name" required></div>
+          <div class="field"><label for="c-email">Your email</label><input id="c-email" name="email" type="email" required></div>
+        </div>
+        <input class="hp" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <label class="consent"><input type="checkbox" name="rules" value="accepted" required> I'm 18+ (or have a parent/guardian's permission) and accept the <a href="/rules.html">official rules</a>.</label>
+        <button class="btn btn-primary" type="submit" style="width:100%;margin-top:12px">Submit nomination</button>
+        <div class="form-msg" role="status"></div>
+      </form>
+    </div>
+  </div>
+</section>
+<script>
+(function(){var end=new Date('{{ site.contest_deadline }}T23:59:59'),el=document.getElementById('cd');function t(){var d=end-new Date();if(d<=0){el.textContent='Nominations closed — winners announced March 22';return}var D=Math.floor(d/864e5),H=Math.floor(d%864e5/36e5);el.textContent=D+' days '+H+' hours left to nominate'}t();setInterval(t,60000)})();
+</script>
