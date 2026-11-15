@@ -1,0 +1,8 @@
+---
+layout: null
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+{% for p in site.pages %}{% if p.url contains '.xml' or p.url contains '.json' or p.url contains '.txt' or p.url contains '.webmanifest' or p.url == '/404.html' or p.noindex %}{% continue %}{% endif %}
+  <url><loc>{{ site.url }}{{ p.url | replace: 'index.html', '' }}</loc><lastmod>{% if p.updated %}{{ p.updated | date_to_xmlschema }}{% else %}{{ site.time | date_to_xmlschema }}{% endif %}</lastmod><changefreq>{% if p.url == '/news.html' or p.url == '/' %}daily{% else %}weekly{% endif %}</changefreq><priority>{% if p.url == '/' %}1.0{% elsif p.url contains '/guides/' or p.url == '/get-tested.html' or p.url == '/cities.html' %}0.9{% else %}0.6{% endif %}</priority></url>{% endfor %}
+</urlset>
